@@ -1,2 +1,2 @@
-ALX devops shell permission sript
+ALX-devops shell permission executable Script
 
