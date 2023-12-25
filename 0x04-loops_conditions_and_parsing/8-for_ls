@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A Bash script that displays:
+    #+ content of the current directory
+    #+ a list format
+    #+ Where only the part of the name after the first dash is displayed 
+files=$(find . -printf "%f\n" | cut -c 3-)
+echo "$files"
