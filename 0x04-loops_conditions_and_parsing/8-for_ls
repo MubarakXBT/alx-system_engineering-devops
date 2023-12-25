@@ -3,7 +3,7 @@
     #+ content of the current directory
     #+ a list format
     #+ Where only the part of the name after the first dash is displayed 
-files=$(find . -printf "%f\n")
+files=$(find . ! -name ".*" -printf "%f\n")
 for i in $files; do
     if [[ "$i" == *-* ]]; then
         echo "${i#*-}"
