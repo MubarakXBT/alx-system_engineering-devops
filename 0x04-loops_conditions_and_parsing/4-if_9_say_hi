@@ -2,8 +2,8 @@
 # prints a string 10 times using while loop except the 9th time it should print "HI"
 
 i=0
-while ((i < 10)); do
-    if [ $i -eq 8 ]; then
+while ((i < 11)); do
+    if [ $i -eq 9 ]; then
         echo "Hi"
     else
         echo "Best School"
