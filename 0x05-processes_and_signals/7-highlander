@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# print "To infinity and beyound" indefinitely with sleep 2 inbetween
+# and "i am invincible when it get a SIGTERM signal"
+cleanup() {
+    echo "I am invincible!!!"
+}
+trap cleanup SIGTERM
+while (true); do
+    echo "To infinity and beyond"
+    sleep 2
+done
