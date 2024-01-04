@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#script that print listening ports and IP (Socket)
+netstat -lp
