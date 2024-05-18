@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
-apt-get -y update && apt-get -y install ngingx
+apt-get -y update && apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 mkdir -p /var/www/html/
 sudo chmod -R 775 /var/www
@@ -12,6 +12,9 @@ SERVER_CONFIG=\
 	root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
 	server_name _;
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
 	if (\$request_filename ~ redirect_me){
 		rewrite ^ https://facebook.com permanent;
 	}
