@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Configure Nginx
+
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# configure firewall through port 80
+sudo ufw allow 'Nginx HTTP'
+
+sudo mkdir -p /var/www/html
+
+# permission handling
+sudo chmod -R 775 /var/www
+
+echo 'Hello World!' | sudo tee /var/www/html/index.html
+
+# Error Handling
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# redirect
+value="server_name _;\n\tadd_header X-Served-By \$hostname;\n\trewrite ^\/redirect_me https:\/\/www.kadna.tech permanent;"
+sudo sed -i "s/server_name _;/$value/" /etc/nginx/sites-enabled/default
+
+# redirect 404 error page
+value="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$value/" /etc/nginx/sites-enabled/default
+
+# restart server
+sudo service nginx restart
