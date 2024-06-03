@@ -3,9 +3,9 @@
 Using what you did in the task #0, extend your Python script
 to export data in the CSV format.
 """
-import sys
-import requests
 import csv
+import requests
+import sys
 
 
 if __name__ == "__main__":
@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
     fields = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
     with open("{}.csv".format(ID), mode='w', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=fields quoting=csv.QUOTE_ALL)
+        writer = csv.DictWriter(file, fieldnames=fields, quoting=csv.QUOTE_ALL)
 
         for row in data:
             writer.writerow(row)
