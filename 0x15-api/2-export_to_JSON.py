@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     data = {ID: []}
     for task in file:
-        dictionary[ID].append({
+        data[ID].append({
             "task": task.get('title'),
             "completed": task.get('completed'),
             "username": username
