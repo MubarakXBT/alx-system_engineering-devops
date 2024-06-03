@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """
-Using what you did in the task #0, extend your Python script to export data in the JSON format.
+Using what you did in the task #0, extend your Python script
+to export data in the JSON format.
 """
-import sys
-import requests
 import json
+import requests
+import sys
 
 
 if __name__ == "__main__":
@@ -20,7 +21,7 @@ if __name__ == "__main__":
 
     data = {ID: []}
     for task in file:
-        dictionary[employeeId].append({
+        dictionary[ID].append({
             "task": task.get('title'),
             "completed": task.get('completed'),
             "username": username
